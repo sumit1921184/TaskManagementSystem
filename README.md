@@ -1,6 +1,21 @@
 # Task Management System
 A simple RESTful API for managing tasks. Users can register, log in, create, update, delete tasks, and view their tasks. Built with Node.js, Express, and MongoDB.
 
+## Deployed Link
+- It is deployed on render
+- link: https://taskmanagementsystem-4wva.onrender.com/
+
+## Directory Structure
+
+TaskManagementSystem/<br>
+├─/<br>
+│ ├─ config/<br>
+│ ├─ middlewares/<br>
+│ ├─ models/<br>
+│ ├─ routes/<br>
+│ ├─ index.js<br>
+│ └─ package.json<br>
+
 ## Installations And Guidelines
 - git clone https://github.com/sumit1921184/TaskManagementSystem.git
 - npm install
