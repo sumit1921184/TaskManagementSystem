@@ -8,7 +8,6 @@ A simple RESTful API for managing tasks. Users can register, log in, create, upd
 ## Directory Structure
 
 TaskManagementSystem/<br>
-├─/<br>
 │ ├─ config/<br>
 │ ├─ middlewares/<br>
 │ ├─ models/<br>
