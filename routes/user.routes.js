@@ -2,9 +2,6 @@ const express = require("express");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { UserModel } = require("../model/user.model");
-// const {BlackListModel} = require("../model/blacklist.model");
-// const { auth } = require("../middlewares/auth.middleware");
-// const {access} = require("../middlewares/access.middleware");
 
 const userRouter = express.Router();
 
@@ -36,15 +33,12 @@ userRouter.post("/register", async (req, res) => {
 
 
 	} catch (err) {
-		res.status(400).json({msg: err });
+		res.status(400).json({ msg: err });
 	}
 })
 
 
-
-
 //Routes for user login and get token after login
-
 
 userRouter.post("/login", async (req, res) => {
 	const { email, password } = req.body;
@@ -62,9 +56,10 @@ userRouter.post("/login", async (req, res) => {
 			res.status(400).json({ msg: "Wrong Credentials" });
 		}
 	} catch (err) {
-		res.status(400).json({msg: err });
+		res.status(400).json({ msg: err });
 	}
 })
+
 
 module.exports = {
 	userRouter

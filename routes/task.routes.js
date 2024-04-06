@@ -42,17 +42,17 @@ taskRouter.get("/", auth, async (req, res) => {
 
 taskRouter.get("/:_id", auth, async (req, res) => {
     const id = req.id;
-    const {_id} = req.params;
+    const { _id } = req.params;
     try {
         const tasks = await TaskModel.findOne({ _id });
         const { userId } = tasks;
-        if(userId.toString() == id){
+        if (userId.toString() == id) {
             res.status(200).json(tasks);
         }
-        else{
-            res.status(400).json({msg:"You are not allowed to access"});
+        else {
+            res.status(400).json({ msg: "You are not allowed to access" });
         }
-        
+
     }
     catch (err) {
         res.status(400).json({ msg: err });
@@ -71,7 +71,7 @@ taskRouter.patch("/:_id", auth, async (req, res) => {
         const { userId } = task;
         if (userId.toString() == id) {
             await TaskModel.findByIdAndUpdate(_id, payload, { new: true });
-            res.status(200).json({msg:"Tasks has been updated" });
+            res.status(200).json({ msg: "Tasks has been updated" });
         }
         else {
             res.status(400).json({ msg: "You are not authorized to update other tasks" });
@@ -95,8 +95,8 @@ taskRouter.delete("/:_id", auth, async (req, res) => {
         const { userId } = task;
         console.log(userId, id);
         if (userId.toString() == id) {
-            const tasks = await TaskModel.findByIdAndDelete(_id,{ new: true });
-            res.status(200).json({msg:"Tasks has been deleted"});
+            const tasks = await TaskModel.findByIdAndDelete(_id, { new: true });
+            res.status(200).json({ msg: "Tasks has been deleted" });
         }
         else {
             res.status(400).json({ msg: "You are not authorized to delete other tasks" });
